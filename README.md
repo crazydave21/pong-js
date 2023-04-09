@@ -7,7 +7,7 @@ This is my personal project
 - [ ] draw player 2 paddle on canvas
 - [ ] add paddle mechanics (player 1 & 2)
 - [ ] add ball mechanics
-- [ ] add score board logic
+- [ ] add score board mechanics
 - [ ] add menu screen
 - [ ] add pasuse screen
 - [ ] add game over screen
