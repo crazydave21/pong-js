@@ -13,7 +13,10 @@ let lastTime = 0;
 function gameLoop(timeStamp) {
     let deltaTime = timeStamp - lastTime;
     lastTime = timeStamp;
+    ctx.clearRect(0, 0, 450, 600);
+
     ball.draw(ctx);
+    ball.update(deltaTime);
     paddle.draw(ctx);
 
     requestAnimationFrame(gameLoop);
