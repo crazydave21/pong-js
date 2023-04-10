@@ -4,7 +4,7 @@ This is my personal project
 - [x] draw player 1 paddle on canvas
 - [x] draw ball on canvas
 - [x] add score board on canvas
-- [ ] draw player 2 paddle on canvas
+- [x] draw player 2 paddle on canvas
 - [ ] add paddle mechanics (player 1 & 2)
 - [ ] add ball mechanics
 - [ ] add score board mechanics
