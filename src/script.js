@@ -1,6 +1,7 @@
 import Ball from "./ball.js";
 import Paddle from "./paddle.js";
 import InputHandler from "./input.js";
+import Score from "./score.js";
 let canvas = document.getElementById('window');
 let ctx = canvas.getContext('2d');
 let GAME_WIDTH = 450;
@@ -8,8 +9,10 @@ let GAME_HEIGHT = 600;
 
 
 let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
-let ball = new Ball(GAME_WIDTH, GAME_HEIGHT, paddle);
+let score = new Score();
+let ball = new Ball(GAME_WIDTH, GAME_HEIGHT, paddle, score);
 new InputHandler(paddle);
+
 
 let lastTime = 0;
 
