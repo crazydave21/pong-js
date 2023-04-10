@@ -1,8 +1,10 @@
 export default class Ball {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight, paddle) {
 
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
+
+        this.paddle = paddle;
 
         this.size = 10;
 
@@ -30,11 +32,28 @@ export default class Ball {
         this.position.x += this.speed.x * deltaTime;
         this.position.y += this.speed.y * deltaTime;
 
-        //collision on x-axis
+        //collision detection x-axis
         if (this.position.x + this.size >= this.gameWidth || this.position.x <= 0) this.speed.x = -this.speed.x;
 
-        //collision on y-axis
+        //collision detection y-axis
         if (this.position.y + this.size >= this.gameHeight || this.position.y <= 0) this.speed.y = -this.speed.y;
+
+        let bottomBall = this.position.y + this.size;
+        let p1paddleTop = this.paddle.p1position.y;
+        let p1paddleLeft = this.paddle.p1position.x;
+        let p1paddleRight = this.paddle.p1position.x + this.paddle.width;
+
+        let topBall = this.position.y;
+        let p2paddleBottom = this.paddle.p2position.y + this.paddle.height;
+        let p2paddleLeft = this.paddle.p2position.x;
+        let p2paddleRight = this.paddle.p2position.x + this.paddle.width;
+
+        //collision detection player 1 paddle
+        if (bottomBall >= p1paddleTop && this.position.x >= p1paddleLeft && this.position.x <= p1paddleRight) this.speed.y = -this.speed.y;
+
+        if (topBall <= p2paddleBottom && this.position.x >= p2paddleLeft && this.position.x <= p2paddleRight) this.speed.y = -this.speed.y;
+
+
 
     }
 

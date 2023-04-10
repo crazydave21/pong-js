@@ -6,8 +6,9 @@ let ctx = canvas.getContext('2d');
 let GAME_WIDTH = 450;
 let GAME_HEIGHT = 600;
 
-let ball = new Ball(GAME_WIDTH, GAME_HEIGHT);
+
 let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
+let ball = new Ball(GAME_WIDTH, GAME_HEIGHT, paddle);
 new InputHandler(paddle);
 
 let lastTime = 0;
