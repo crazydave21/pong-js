@@ -1,6 +1,7 @@
 # pong-js
 A Pong game. Play with your friend.
 # how to play?
+Download as zip, extract and run index.html to play the game.
 Player 1 controls :
 Arrow key left and right to move paddle left or right
 
