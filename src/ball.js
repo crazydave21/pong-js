@@ -1,10 +1,11 @@
 export default class Ball {
-    constructor(gameWidth, gameHeight, paddle) {
+    constructor(gameWidth, gameHeight, paddle, score) {
 
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
 
         this.paddle = paddle;
+        this.score = score;
 
         this.size = 10;
 
@@ -35,8 +36,17 @@ export default class Ball {
         //collision detection x-axis
         if (this.position.x + this.size >= this.gameWidth || this.position.x <= 0) this.speed.x = -this.speed.x;
 
-        //collision detection y-axis
-        if (this.position.y + this.size >= this.gameHeight || this.position.y <= 0) this.speed.y = -this.speed.y;
+        //calculate player 1 score
+        if (this.position.y <= 0) {
+            this.speed.y = -this.speed.y;
+            this.score.p1Score();
+        }
+
+        //calculate player 2 score
+        if (this.position.y + this.size >= this.gameHeight) {
+            this.speed.y = -this.speed.y;
+            this.score.p2Score();
+        }
 
         let bottomBall = this.position.y + this.size;
         let p1paddleTop = this.paddle.p1position.y;
@@ -51,6 +61,7 @@ export default class Ball {
         //collision detection player 1 paddle
         if (bottomBall >= p1paddleTop && this.position.x >= p1paddleLeft && this.position.x <= p1paddleRight) this.speed.y = -this.speed.y;
 
+        //collision detection player 2 paddle
         if (topBall <= p2paddleBottom && this.position.x >= p2paddleLeft && this.position.x <= p2paddleRight) this.speed.y = -this.speed.y;
 
 
