@@ -18,7 +18,7 @@ export default class Ball {
     }
 
     draw(ctx) {
-
+        //draw ball on canvas
         ctx.fillStyle = 'red';
         ctx.fillRect(this.position.x, this.position.y, this.size, this.size);
 
@@ -37,5 +37,5 @@ export default class Ball {
         if (this.position.y + this.size >= this.gameHeight || this.position.y <= 0) this.speed.y = -this.speed.y;
 
     }
-       
+
 }
